@@ -1,0 +1,18 @@
+---
+import { sanityClient } from "sanity:client";
+import { pagesQuery, pageQuery } from "../sanity/queries/pages";
+
+export async function getStaticPaths() {
+  const pages = await sanityClient.fetch(pagesQuery);
+  return pages.map(({ slug }) => ({
+    params: { slug: slug?.current || '' },
+  }));
+}
+
+const { slug } = Astro.params;
+const page = await sanityClient.fetch(pageQuery, { slug });
+
+if (!page) return new Response(null, { status: 404,statusText: 'Not found' });
+---
+
+<h1>A post about {page.title}</h1>

@@ -21,8 +21,7 @@ export const pageType = defineType({
     {
       name: "content",
       title: "Content",
-      type: "array",
-      of: [],
+      type: "blockContent"
     },
   ],
 });

@@ -17,6 +17,9 @@ importers:
       '@sanity/client':
         specifier: ^7.20.0
         version: 7.20.0(debug@4.4.3)
+      '@sanity/image-url':
+        specifier: ^2.1.0
+        version: 2.1.0
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -26,6 +29,9 @@ importers:
       astro:
         specifier: ^6.1.1
         version: 6.1.1(@types/node@25.5.0)(jiti@2.6.1)(lightningcss@1.32.0)(rollup@4.60.0)(tsx@4.21.0)(yaml@2.8.3)
+      groq:
+        specifier: ^5.18.0
+        version: 5.18.0
       react:
         specifier: ^19.2.4
         version: 19.2.4
