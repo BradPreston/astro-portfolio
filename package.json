@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.4",
-    "astro": "^6.1.9"
+    "@iconify-json/lucide": "^1.2.103",
+    "astro": "^6.1.9",
+    "astro-icon": "^1.1.5"
   }
 }
