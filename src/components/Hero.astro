@@ -34,7 +34,8 @@
         justify-content: space-between;
         align-items: stretch;
         gap: 4rem;
-        padding: 5rem 0;
+        padding: 5rem 2rem;
+        padding-top: 0;
         container-type: inline-size;
         container-name: hero;
     }
@@ -172,6 +173,12 @@
         aspect-ratio: 1;
         transform: translateY(-50%);
         clip-path: shape(from 87.69% 10.08%,curve to 87.69% 76.75% with 112.31% 30.25%,curve to 21.02% 76.75% with 63.06% 123.25%,curve to 21.02% 10.08% with -21.02% 30.25%,curve to 87.69% 10.08% with 63.06% -10.08%);
+    }
+
+    @media screen and (min-width: 801px) {  
+        .hero {
+            padding: 5rem 0;
+        }
     }
 
     @container hero (width < 950px) {
