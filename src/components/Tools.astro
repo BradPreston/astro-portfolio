@@ -1,0 +1,106 @@
+---
+import HeadingBlock from "./HeadingBlock.astro";
+
+type Tool = {
+    name: string;
+    icon: string;
+    link: string;
+}
+
+const tools: Tool[] = [
+    {
+        name: "TypeScript",
+        icon: "typescript.svg",
+        link: "https://www.typescriptlang.org/"
+    },
+    {
+        name: "Vue",
+        icon: "vue.svg",
+        link: "https://vuejs.org/"
+    },
+    {
+        name: "Nuxt",
+        icon: "nuxt.svg",
+        link: "https://nuxt.com/"
+    },
+    {
+        name: "Tailwind",
+        icon: "tailwind.svg",
+        link: "https://tailwindcss.com/"
+    },
+    {
+        name: "Astro",
+        icon: "astro.svg",
+        link: "https://astro.build/"
+    },
+    {
+        name: "Render",
+        icon: "render.svg",
+        link: "https://render.com/"
+    }
+]
+---
+<section class="tools">
+    <HeadingBlock subtitle="My Favorite Tools" layout="centered">
+        <h2 slot="title">
+            <em>Exploring the Tools</em>
+            Behind My Projects
+        </h2>
+    </HeadingBlock>
+
+    <div class="tools-list">
+        {tools.map(({ name, icon, link }) => (
+            <a class="tool" href={link} target="_blank" rel="nofollow">
+                <img src={`/images/logos/${icon}`} alt={name} class="image" />
+                <p>{name}</p>
+            </a>
+        ))}
+    </div>
+</section>
+
+<style>
+    .tools {
+        padding: 5rem 2rem;
+        container-type: inline-size;
+        container-name: tools;
+    }
+
+    .tools-list {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2rem;
+    }
+
+    .tool {
+        background: var(--light);
+        padding: 1rem;
+        border-radius: 1rem;
+        font-family: var(--roboto);
+        text-align: center;
+        text-decoration: none;
+
+        .image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+            padding: 1rem;
+        }
+
+        p {
+            marign-bottom: 0;
+            color: var(--dark);
+        }
+    }
+
+    @container tools (width < 750px) {
+        .tools-list {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @container tools (width < 450px) {
+        .tools-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
