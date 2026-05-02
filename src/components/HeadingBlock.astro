@@ -1,0 +1,62 @@
+---
+type Props = {
+    subtitle: string;
+    layout: "centered" | "row";
+}
+const { subtitle, layout } = Astro.props;
+---
+<section class={`headingBlock ${layout === "centered" && "centered-title"}`}>
+    <p class="subtitle">{subtitle}</p>
+    <div class="styled-title">
+        <slot name="title" />
+    </div>
+</section>
+
+<style>
+    .headingBlock {
+        margin-bottom: 3rem;
+    }
+
+    .subtitle {
+        margin: 0 auto;
+        font-family: var(--roboto);
+        color: var(--dark);
+        position: relative;
+        width: fit-content;
+        padding-left: 1.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 1rem;
+            height: 2px;
+            background: var(--secondary);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    }
+    .styled-title {
+        color: var(--dark);
+        font-size: 2rem;
+        font-family: var(--roboto);
+        font-weight: 500;
+
+        em {
+            color: var(--secondary);
+            font-weight: normal;
+        }
+    }
+
+    .centered-title {
+        /* max-width: 570px; */
+        text-align: center;
+        marign: 0 auto;
+
+        em {
+            display: block;
+        }
+    }
+</style>
