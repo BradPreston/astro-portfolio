@@ -79,8 +79,8 @@ const navLinks = [
             color 150ms ease;
 
         &:hover {
-            background: var(--primary);
-            color: var(--light);
+            background: var(--secondary);
+            color: var(--primary);
         }
     }
 
@@ -149,6 +149,11 @@ const navLinks = [
         aspect-ratio: 1 / 1;
         border-radius: 0.5rem;
         padding: 0;
+        background: var(--secondary);
+
+        &:hover {
+            background: var(--light);
+        }
     }
 
     .mobile-menu .icon-close {
