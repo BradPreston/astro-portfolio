@@ -1,0 +1,116 @@
+---
+import { Icon } from "astro-icon/components";
+
+const skillsList = ["TypeScript", "Tailwind", "Vue", "Nuxt", "Astro"];
+---
+<section class="marquee">
+    <div class="marquee-wrapper">
+    <div class="skills-track">
+        <div class="skills-group">
+            {skillsList.map(skill => (
+                <span class="skill">
+                    {skill}
+                    <Icon name="lucide:cable" size="32" />
+                </span>
+            ))}
+        </div>
+        <div class="skills-group">
+            {skillsList.map(skill => (
+                <span class="skill">
+                    {skill}
+                    <Icon name="lucide:cable" size="32" />
+                </span>
+            ))}
+        </div>
+        <div class="skills-group">
+            {skillsList.map(skill => (
+                <span class="skill">
+                    {skill}
+                    <Icon name="lucide:cable" size="32" />
+                </span>
+            ))}
+        </div>
+    </div>
+    </div>
+</section>
+
+<style>
+    .marquee {
+        position: relative;
+        background: var(--secondary);
+        padding: 1.5rem 0;
+        width: 100%;
+        overflow-x: clip;
+        overflow-y: visible;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--primary);
+            z-index: -1;
+            transform: rotate(-3deg) scaleX(1.05);
+        }
+    }
+
+    .marquee-wrapper {
+        overflow-x: clip;
+    }
+
+    .skills-track {
+        display: flex;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-name: scroll-left;
+        animation-timing-function: linear;
+        width: max-content;
+        white-space: nowrap;
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+
+    .skills-group {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .skill {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        padding-right: 4rem;
+        font-family: var(--roboto);
+        color: var(--dark);
+        font-weight: 500;
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(0%);
+        }
+
+        to {
+            transform: translateX(-33.333%);
+        }
+    }
+
+    @media screen and (min-width: 801px) {
+        .skill {
+            gap: 8rem;
+            padding-right: 8rem;
+        }
+
+        .marquee::before {
+            transform: rotate(-2.2deg) scaleX(1.05);
+        }
+    }
+
+    @media screen and (min-width: 650px) {
+        .skill {
+            font-size: 2rem;
+        }
+    }
+</style>

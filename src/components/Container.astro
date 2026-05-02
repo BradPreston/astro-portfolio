@@ -1,0 +1,19 @@
+---
+---
+<div class="container">
+    <slot />
+</div>
+
+<style>
+    .container {
+        padding: calc(75px + 2rem) 2rem 0 2rem;
+    }
+
+    @media screen and (min-width: 801px) {
+        .container {
+            padding: calc(75px + 4rem) 0 0 0;
+            max-width: min(75%, 1200px);
+            margin: 0 auto;
+        }
+    }
+</style>
