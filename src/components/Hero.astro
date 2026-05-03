@@ -59,6 +59,7 @@
         padding: 0.5rem 1rem;
         border: 2px solid var(--dark);
         color: var(--dark);
+        margin-left: 8px;
     }
 
     .corner-block {
@@ -188,6 +189,10 @@
     }
 
     @container hero (width < 650px) {
+        .styled-subheading {
+            margin-left: unset;
+        }
+        
         .hero-left {
             max-width: 100%;
             align-items: center;
