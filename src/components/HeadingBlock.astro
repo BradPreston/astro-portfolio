@@ -9,6 +9,7 @@ const { subtitle, layout } = Astro.props;
     <p class="subtitle">{subtitle}</p>
     <div class="styled-title">
         <slot name="title" />
+        <slot name="button" />
     </div>
 </section>
 
@@ -18,13 +19,13 @@ const { subtitle, layout } = Astro.props;
     }
 
     .subtitle {
-        margin: 0 auto;
         font-family: var(--roboto);
         color: var(--dark);
         position: relative;
         width: fit-content;
         padding-left: 1.5rem;
         font-size: 1.2rem;
+        margin: 0 auto;
         margin-bottom: 0.75rem;
 
         &::before {
@@ -38,25 +39,56 @@ const { subtitle, layout } = Astro.props;
             transform: translateY(-50%);
         }
     }
+
     .styled-title {
         color: var(--dark);
         font-size: 2rem;
         font-family: var(--roboto);
         font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: center;
 
         em {
             color: var(--secondary);
             font-weight: normal;
         }
+        
+        .button.button-primary {
+            display: none;
+        }
     }
 
     .centered-title {
-        /* max-width: 570px; */
         text-align: center;
         marign: 0 auto;
 
         em {
             display: block;
+        }
+
+        .subtitle {
+            margin: 0 auto;
+        }
+
+        .styled-title {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @media screen and (min-width: 801px) {
+        .subtitle {
+            margin: unset;
+            margin-bottom: 0.75rem;
+        }
+        .styled-title {
+            justify-content: space-between;
+
+            .button.button-primary {
+                display: block;
+            }
         }
     }
 </style>
