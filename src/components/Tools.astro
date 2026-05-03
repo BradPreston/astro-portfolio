@@ -19,11 +19,6 @@ const tools: Tool[] = [
         link: "https://www.w3.org/Style/CSS/"
     },
     {
-        name: "Vue",
-        icon: "vue.svg",
-        link: "https://vuejs.org/"
-    },
-    {
         name: "Nuxt",
         icon: "nuxt.svg",
         link: "https://nuxt.com/"
@@ -32,6 +27,11 @@ const tools: Tool[] = [
         name: "Astro",
         icon: "astro.svg",
         link: "https://astro.build/"
+    },
+    {
+        name: "Pages CMS",
+        icon: 'pages-cms.svg',
+        link: 'https://pagescms.org/'
     },
     {
         name: "Render",
@@ -60,7 +60,7 @@ const tools: Tool[] = [
 
 <style>
     .tools {
-        padding: 5rem 0;
+        padding: 5rem 2rem;
         container-type: inline-size;
         container-name: tools;
     }
@@ -101,6 +101,12 @@ const tools: Tool[] = [
     @container tools (width < 450px) {
         .tools-list {
             grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media screen and (min-width: 801px) {
+        .tools {
+            padding: 5rem 0;
         }
     }
 </style>
