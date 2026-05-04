@@ -1,0 +1,165 @@
+---
+import Container from "./Container.astro";
+import HeadingBlock from "./HeadingBlock.astro";
+import ProjectCard from "./ProjectCard.astro";
+import { Swiper, SwiperWrapper, SwiperSlide, SwiperPagination, SwiperButtonNext, SwiperButtonPrev } from "astro-swiper";
+
+type Project = {
+    link: string;
+    thumbnail: {
+        src: string;
+        alt: string;
+    };
+    tags: string[];
+    title: string;
+}
+const projects: Project[] = [
+    {
+        link: "/projects/kazoo48",
+        thumbnail: {
+            src: "/images/projects/kazoo48.jpg",
+            alt: "Screenshot of Kazoo 48 Home Page"
+        },
+        tags: ["Astro", "TypeScript", "CSS"],
+        title: "Kazoo 48 Film Festival"
+    },
+    {
+        link: "/projects/one-with-the-riverbed",
+        thumbnail: {
+            src: "/images/projects/one-with-the-riverbed.jpg",
+            alt: "Screenshot of One With The Riverbed Home Page"
+        },
+        tags: ["Next", "TypeScript", "CSS"],
+        title: "One With The Riverbed"
+    },
+    {
+        link: "/projects/aarons-music-service",
+        thumbnail: {
+            src: "/images/projects/aaronsmusicservice.jpg",
+            alt: "Screenshot of Aaron's Music Service Home Page"
+        },
+        tags: ["Svelte", "TypeScript", "SCSS"],
+        title: "Aaron's Music Service"
+    },
+    {
+        link: "/projects/phase10-scoresheet",
+        thumbnail: {
+            src: "/images/projects/phase10-scoresheet.jpg",
+            alt: "Screenshot of Phase 10 Scoresheet Home Page"
+        },
+        tags: ["Vue", "Tailwind", "TypeScript"],
+        title: "Phase 10 Scoresheet"
+    }
+]
+---
+<section class="projects">
+    <Container>
+        <HeadingBlock subtitle="My Portfolio" layout="row">
+            <h2 slot="title">
+                My Latest
+                <em>Projects</em>
+            </h2>
+            <a href="/projects/" class="button button-primary" slot="button">View All Projects</a>
+        </HeadingBlock>
+
+        <Swiper
+            options={{
+                slidesPerView: 1,
+                spaceBetween: 32,
+                loop: false,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                grid: {
+                    fill: 'row',
+                    rows: 1
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        grid: {
+                            rows: 1
+                        }
+                    },
+                    801: {
+                        slidesPerView: 2,
+                        grid: {
+                            rows: 2
+                        }
+                    }
+                }
+            }}
+        >
+            <SwiperWrapper>
+                {projects.map(({ link, thumbnail, tags, title }) => (
+                    <SwiperSlide>
+                        <ProjectCard link={link} thumbnail={thumbnail} tags={tags} title={title} />
+                    </SwiperSlide>
+                ))}
+            </SwiperWrapper>
+            <SwiperButtonPrev />
+            <SwiperButtonNext />
+            <SwiperPagination />
+        </Swiper>
+    </Container>
+</section>
+
+<style>
+    .projects {
+        padding: 5rem 2rem;
+        background: var(--light);
+    }
+
+    .button {
+        font-size: 1rem;
+        font-family: var(--roboto);
+        padding: 1rem 2rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all 200ms ease;
+    }
+
+    .button-primary {
+        background: var(--primary);
+        color: var(--light);
+        border: 2px solid var(--primary);
+
+        &:hover {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+    }
+
+    .projects-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    @media screen and (min-width: 801px) {
+        .projects {
+            padding: 5rem 0;
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: var(--secondary);
+        background: var(--primary);
+        border-radius: 9999px;
+        
+        svg {
+            width: 50%;
+            height: 50%;
+        }
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+        background: var(--primary);
+    }
+</style>
