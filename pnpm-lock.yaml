@@ -20,6 +20,9 @@ importers:
       astro-icon:
         specifier: ^1.1.5
         version: 1.1.5
+      astro-swiper:
+        specifier: ^2.6.0
+        version: 2.6.0
 
 packages:
 
@@ -663,6 +666,10 @@ packages:
 
   astro-icon@1.1.5:
     resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
+
+  astro-swiper@2.6.0:
+    resolution: {integrity: sha512-X3xARd1sIvYA0z+QQ2MQpazlUaBYgrkqCp6vBFNMcdCJkTUXIJ9KzWtOYgUOFEt7UQ2FGe/CeF5RtKrVYhJF1Q==}
+    engines: {node: '>=18', npm: '>=9.6.5', pnpm: '>=7.1.0'}
 
   astro@6.1.9:
     resolution: {integrity: sha512-NsAHzMzpznB281g2aM5qnBt2QjfH6ttKiZ3hSZw52If8JJ+62kbnBKbyKhR2glQcJLl7Jfe4GSl0DihFZ36rRQ==}
@@ -1519,6 +1526,10 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
+  swiper@12.1.4:
+    resolution: {integrity: sha512-bihiwoKMOQwW8FfdUbo1DgkVH25E+4ZELIq0oopL1KTKBteLuaTMi/wwFjMxtlhTkk45k3XQ89D1Fvv0spSqBA==}
+    engines: {node: '>= 4.7.0'}
+
   tar@7.5.13:
     resolution: {integrity: sha512-tOG/7GyXpFevhXVh8jOPJrmtRpOTsYqUIkVdVooZYJS/z8WhfQUX8RJILmeuJNinGAMSu1veBr4asSHFt5/hng==}
     engines: {node: '>=18'}
@@ -2315,6 +2326,10 @@ snapshots:
       '@iconify/utils': 2.3.0
     transitivePeerDependencies:
       - supports-color
+
+  astro-swiper@2.6.0:
+    dependencies:
+      swiper: 12.1.4
 
   astro@6.1.9(@types/node@25.6.0)(rollup@4.60.2):
     dependencies:
@@ -3779,6 +3794,8 @@ snapshots:
       csso: 5.0.5
       picocolors: 1.1.1
       sax: 1.6.0
+
+  swiper@12.1.4: {}
 
   tar@7.5.13:
     dependencies:
